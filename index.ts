@@ -42,9 +42,10 @@ function isComparisonCondition (condition: Condition): condition is ComparisonCo
  */
 
 function evaluate (condition: Condition, context: Context): boolean {
-  // Checking if =
+  // Checking if condition is =
   if (isComparisonCondition(condition)) {
-    return condition[1].substring(1) in context && context[condition[1].substring(1)] ===condition[2]
+    return condition[1].substring(1) in context 
+    && context[condition[1].substring(1)] ===condition[2]
   }else{
     condition.length == 2 && evaluate(condition[1], context)
     switch(condition[0]){
